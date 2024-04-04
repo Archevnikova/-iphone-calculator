@@ -4,27 +4,59 @@
     <meta charset="UTF-8">
     <title>Калькулятор</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="calculator">
         <header class="header__container">
             <div class="header__time">
-                <span class="calculator__time">9:14</span>
+                9:14
             </div>
-            <div class="container">
+            <div class="header__icons">
                 <img src="/img/Status/Combined Shape.png">
                 <img src="/img/Wi-Fi.png">
                 <img src="/img/Battery.png">
             </div>
+
         </header>
         <section class="result">
-            <output class="calc__result">
-                <span class="answer">914</span>
-            </output>
+            <input type="text"class="result__answer" id="result" placeholder="00">
         </section>
         <section class="buttons">
-            
-                <button type="button" class="btn_gray">AC</button>
+            <table class="buttons__table">
+                <tbody class="table__tbody">
+                    <tr class="table__tr">
+                        <td class="table__td"><button type="button" class=" button btn-gray ">AC</button></td>
+                        <td class="table__td"><button type="button" class=" button btn-gray">+/-</button></td>
+                        <td class="table__td"><button type="button" class=" button btn-gray">%</button></td>
+                        <td class="table__td"><button type="button" class="button">/</button></td>
+                    </tr>
+                    <tr class="table__tr">
+                        <td class="table__td"><button type="button" class="button digit7">7</button></td>
+                        <td class="table__td"><button type="button" class="button digit8">8</button></td>
+                        <td class="table__td"><button type="button" class="button digit9">9</button></td>
+                        <td class="table__td"><button type="button" class="button">*</button></td>
+                    </tr>digit
+                    <tr class="table__tr">
+                        <td class="table__td"><button type="button" class="button digit4" >4</button></td>
+                        <td class="table__td"><button type="button" class="button digit5" >5</button></td>
+                        <td class="table__td"><button type="button" class="button digit6" >6</button></td>
+                        <td class="table__td"><button type="button" class="button">-</button></td>
+                    </tr>
+                    <tr class="table__tr">
+                        <td class="table__td"><button type="button" class="digit1 button">1</button></td>
+                        <td class="table__td"><button type="button" class="button digit2">2</button></td>
+                        <td class="table__td"><button type="button" class="button digit3">3</button></td>
+                        <td class="table__td"><button type="button" class="button">+</button></td>
+                    </tr>
+                    <tr class="table__tr">
+                        <td class="table__td" colspan="2"><button type="button" class="digit button btn-zero">0</button></td>
+                        <td class="table__td" ><button type="button" class="button">.</button> </td>
+                        <td class="table__td" ><button type="button" class="button">=</button></td>
+                    </tr>
+                </tbody>
+            </table>
+                <!-- <button type="button" class="btn_gray">AC</button>
                 <button type="button" class="btn_gray">+/-</button>
                 <button type="button" class="btn_gray">%</button>
                 <button type="button"class="btn_orange">/</button>
@@ -46,7 +78,7 @@
                 
                 <button type="button" class="btn__zero" >0</button>
                 <button type="button" >,</button>
-                <button type="button" class="btn_orange" >=</button>
+                <button type="button" class="btn_orange" >=</button> -->
         </section>
     </div>
     <script src="script.js"></script>
