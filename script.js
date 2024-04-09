@@ -1,7 +1,8 @@
 // function currentValue() {
 //     return $("#result");
 // }
-
+let currentValue = "";
+let operation = "";
 
 // проходимся в цикле по каждой кнопке с числом, 
 // и добавляем слушатель на пересчет результата
@@ -24,27 +25,52 @@ $("#ac").click(function(){
     $("#result").val("");
 });
 
+// вешаеем слушатель на =
+$("#eq").click(function(){
+    let result = 0;
+    if (operation === "+"){
+        result = Number(currentValue) + Number($("#result").val());
+    } else if (operation === "-"){
+        result = Number(currentValue) - Number($("#result").val());
+    }else if (operation === "/"){
+        result = Number(currentValue) / Number($("#result").val());
+    }else if (operation === "*"){
+        result = Number(currentValue) * Number($("#result").val());
+    }
+    $("#result").val(result);
+});
+
 
 // вешаеем слушатель на +
-$("#ac").click(function(){
+$("#plus").click(function(){
+    currentValue = $("#result").val();
+    operation = "+";
     $("#result").val("");
+    $("#plus")
 });
 
 
 // вешаеем слушатель на -
-$("#ac").click(function(){
+$("#minus").click(function(){
+    currentValue = $("#result").val();
+    operation = "-";
+    
     $("#result").val("");
 });
 
 
 // вешаеем слушатель на /
-$("#ac").click(function(){
+$("#del").click(function(){
+    operation = "/";
+    currentValue = $("#result").val();
     $("#result").val("");
 });
 
 
 // вешаеем слушатель на *
-$("#ac").click(function(){
+$("#mul").click(function(){
+    currentValue = $("#result").val();
+    operation = "*";
     $("#result").val("");
 });
 
