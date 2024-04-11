@@ -37,7 +37,9 @@ $("#eq").click(function(){
     }else if (operation === "*"){
         result = Number(currentValue) * Number($("#result").val());
     }
+    $("#plus,#minus,#division,#mul").css({backgroundColor:"",color:""});
     $("#result").val(result);
+
 });
 
 
@@ -45,8 +47,9 @@ $("#eq").click(function(){
 $("#plus").click(function(){
     currentValue = $("#result").val();
     operation = "+";
+    $("#plus").css({backgroundColor:"white",color:"black"});
     $("#result").val("");
-    $("#plus")
+    
 });
 
 
@@ -54,16 +57,17 @@ $("#plus").click(function(){
 $("#minus").click(function(){
     currentValue = $("#result").val();
     operation = "-";
-    
     $("#result").val("");
+    $("#minus").css({backgroundColor:"white",color:"black"});
 });
 
 
 // вешаеем слушатель на /
-$("#del").click(function(){
+$("#division").click(function(){
     operation = "/";
     currentValue = $("#result").val();
     $("#result").val("");
+    $("#division").css({backgroundColor:"white",color:"black"});
 });
 
 
@@ -72,7 +76,42 @@ $("#mul").click(function(){
     currentValue = $("#result").val();
     operation = "*";
     $("#result").val("");
+    $("#mul").css({backgroundColor:"white",color:"black"});
 });
+
+$("#invert").click(function(){
+    currentValue = $("#result").val();
+    currentValue = -currentValue;
+    $("#result").val(currentValue);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
