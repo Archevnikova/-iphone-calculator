@@ -82,7 +82,7 @@ button{
 .btn-gray{
     background: #A5A5A5;
 }
-@media (max-width:300px) and (max-height:800px){
+@media(max-width: 500px) or (min-resolution: 180dpi){
   
 .calculator{
     background-color:#000000;
