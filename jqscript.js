@@ -19,7 +19,10 @@ for(let i = 0; i < 10; i++) {
     });
     
 }
-
+function saveCurrentValueAndClearInput(){
+    currentValue = $("#result").val();
+    $("#result").val("");
+}
 // вешаеем слушатель на очистку результата
 $("#ac").click(function(){
     $("#result").val("");
@@ -28,20 +31,24 @@ $("#ac").click(function(){
 // вешаеем слушатель на =
 $("#eq").click(function(){
     let result = 0;
-    if (operation === "+"){
-        result = Number(currentValue) + Number($("#result").val());
-    } else if (operation === "-"){
-        result = Number(currentValue) - Number($("#result").val());
-    }else if (operation === "/"){
-        result = Number(currentValue) / Number($("#result").val());
-    }else if (operation === "*"){
-        result = Number(currentValue) * Number($("#result").val());
-    
-    }else if (operation === "%"){
-        const minVal = Math.min(Number(currentValue),Number($("#result").val()));
-        const maxVal = Math.max(Number(currentValue),Number($("#result").val()));
-
-        result = (minVal / maxVal)*100 + "%";
+    const cvVal = Number(currentValue);
+    const cvIn = Number($("#result").val());
+    switch(operation){
+        case "+": result = cvVal + cvIn;
+        break;
+        case "-":result = cvVal - cvIn;
+        break;
+        case"/": result = cvVal / cvIn;
+        break;
+        case"*":result = cvVal * cvIn;
+        break;
+        case "%":{
+            const minVal = Math.min(cvVal,cvIn);
+            const maxVal = Math.max(cvVal,cvIn);
+            result = (minVal / maxVal)*100 + "%";
+            break;
+        }
+        default:alert("Операция не найдена!");
     }
     $("#plus,#minus,#division,#mul").css({backgroundColor:"",color:""});
     $("#result").val(result);
@@ -51,52 +58,46 @@ $("#eq").click(function(){
 
 // вешаеем слушатель на +
 $("#plus").click(function(){
-    currentValue = $("#result").val();
+    saveCurrentValueAndClearInput()
     operation = "+";
     $("#plus").css({backgroundColor:"white",color:"black"});
-    $("#result").val("");
-    
 });
 
 
 // вешаеем слушатель на -
 $("#minus").click(function(){
-    currentValue = $("#result").val();
+    saveCurrentValueAndClearInput()
     operation = "-";
-    $("#result").val("");
     $("#minus").css({backgroundColor:"white",color:"black"});
 });
 
 
 // вешаеем слушатель на /
 $("#division").click(function(){
+    saveCurrentValueAndClearInput()
     operation = "/";
-    currentValue = $("#result").val();
-    $("#result").val("");
     $("#division").css({backgroundColor:"white",color:"black"});
 });
 
 
 // вешаеем слушатель на *
 $("#mul").click(function(){
-    currentValue = $("#result").val();
+    saveCurrentValueAndClearInput()
     operation = "*";
-    $("#result").val("");
     $("#mul").css({backgroundColor:"white",color:"black"});
 });
+
+//вешаем слушатель на %
+$("#percent").click(function(){
+    saveCurrentValueAndClearInput()
+    operation = "%";
+})
 //вешаем слушатель на +/-
 $("#invert").click(function(){
     currentValue = $("#result").val();
     currentValue = -currentValue;
     $("#result").val(currentValue);
 })
-//вешаем слушатель на %
-$("#percent").click(function(){
-    operation = "%";
-    currentValue = $("#result").val();
-    $("#result").val("");
-})
-
 
 
 
